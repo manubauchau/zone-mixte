@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tour de France – Demandes d’interview</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="phone-shell">
+      <header class="app-header">
+        <div class="brand-block">
+          <span class="brand-kicker">Tour de France</span>
+          <h1>Press Link</h1>
+        </div>
+        <div class="header-indicator">
+          <span class="live-dot"></span>
+          2026
+        </div>
+      </header>
+
+      <nav class="role-switcher" aria-label="Choix du profil">
+        <button class="role-tab active" data-role="media">Médias</button>
+        <button class="role-tab" data-role="attaché">Attachés</button>
+        <button class="role-tab" data-role="admin">Admin</button>
+      </nav>
+
+      <section class="hero-card">
+        <p class="eyebrow">Programme de demandes</p>
+        <h2>Interview des coureurs</h2>
+        <div class="hero-line">
+          <span>Étape 1</span>
+          <span>•</span>
+          <span>Paris / Nice</span>
+        </div>
+      </section>
+
+      <section class="stats-row">
+        <div class="stat-card">
+          <span>Équipes</span>
+          <strong id="teamCount">22</strong>
+        </div>
+        <div class="stat-card">
+          <span>Sélection</span>
+          <strong id="selectionCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Demandes</span>
+          <strong id="requestCount">0</strong>
+        </div>
+      </section>
+
+      <main class="panel-stack">
+        <section class="panel active" id="mediaPanel">
+          <div class="panel-head">
+            <div>
+              <p class="section-label">Médias</p>
+              <h3>Demandes d’interview</h3>
+            </div>
+            <select id="mediaSelect" aria-label="Choisir un média">
+              <option value="L’Équipe">L’Équipe</option>
+              <option value="Le Monde">Le Monde</option>
+              <option value="Cycling News">Cycling News</option>
+              <option value="France Télévisions">France Télévisions</option>
+              <option value="RTBF">RTBF</option>
+              <option value="Le Soir">Le Soir</option>
+            </select>
+          </div>
+
+          <div id="mediaSelectionSummary" class="selection-summary empty">
+            Aucune sélection pour le moment.
+          </div>
+
+          <div id="mediaTeamList" class="team-list"></div>
+
+          <button id="validateRequests" class="primary-button" type="button">
+            Valider les sélections
+          </button>
+        </section>
+
+        <section class="panel" id="attachéPanel">
+          <div class="panel-head compact">
+            <div>
+              <p class="section-label">Attaché de presse</p>
+              <h3 id="attachéTeamTitle">Équipe UAE</h3>
+            </div>
+            <span class="team-badge" id="attachéBadge">UAE</span>
+          </div>
+
+          <div id="attachéList" class="attaché-list"></div>
+        </section>
+
+        <section class="panel" id="adminPanel">
+          <div class="panel-head compact">
+            <div>
+              <p class="section-label">Administration</p>
+              <h3>Étapes et courses</h3>
+            </div>
+          </div>
+
+          <div class="stage-form">
+            <input id="stageName" type="text" placeholder="Nom de l’étape" />
+            <input id="stageDate" type="date" />
+            <button id="addStage" type="button" class="primary-button mini">Ajouter</button>
+          </div>
+
+          <ul id="stageList" class="stage-list"></ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
