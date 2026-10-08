@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin – Tour de France</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="../shared/race-data.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Tour de France 2026</p>
+          <h1>Administration</h1>
+        </div>
+        <a class="back-link" href="../index.html">Retour</a>
+      </header>
+
+      <nav class="main-tabs" aria-label="Menu admin">
+        <button class="tab-btn active" data-tab="course">Course</button>
+        <button class="tab-btn" data-tab="daily">Quotidien</button>
+        <button class="tab-btn" data-tab="media">Médias</button>
+        <button class="tab-btn" data-tab="press">Attachés</button>
+      </nav>
+
+      <main class="tab-panels">
+        <section class="tab-panel active" id="courseTab">
+          <div class="card">
+            <h2>Informations de départ</h2>
+            <form id="raceForm" class="stack-form">
+              <label>
+                <span>Nom de la course</span>
+                <input id="raceNameInput" type="text" />
+              </label>
+              <label>
+                <span>Date de départ</span>
+                <input id="raceDateInput" type="date" />
+              </label>
+              <button class="primary-btn" type="submit">Enregistrer</button>
+            </form>
+          </div>
+
+          <div class="card">
+            <h2>Étapes</h2>
+            <form id="stageForm" class="inline-form">
+              <input id="stageNameInput" type="text" placeholder="Nom de l’étape" />
+              <input id="stageDateInput" type="date" />
+              <button class="primary-btn" type="submit">Ajouter</button>
+            </form>
+            <ul id="stageList" class="list"></ul>
+          </div>
+
+          <div class="card">
+            <h2>Équipes et coureurs</h2>
+            <form id="teamForm" class="stack-form">
+              <label>
+                <span>Nom de l’équipe</span>
+                <input id="teamNameInput" type="text" placeholder="Ex. UAE Team Emirates XRG" />
+              </label>
+              <label>
+                <span>Code</span>
+                <input id="teamShortInput" type="text" placeholder="Ex. UAE" />
+              </label>
+              <label>
+                <span>Attaché de presse</span>
+                <input id="teamAttachéInput" type="text" placeholder="Nom de l’attaché" />
+              </label>
+              <label>
+                <span>Coureurs (un par ligne)</span>
+                <textarea id="teamRidersInput" rows="6" placeholder="Tadej Pogačar&#10;Adam Yates&#10;..."></textarea>
+              </label>
+              <button class="primary-btn" type="submit">Ajouter l’équipe</button>
+            </form>
+            <div id="teamList" class="team-list"></div>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="dailyTab">
+          <div class="card">
+            <h2>Horaires de sélection</h2>
+            <form id="selectionForm" class="inline-form">
+              <input id="selectionStartInput" type="time" />
+              <input id="selectionEndInput" type="time" />
+              <button class="primary-btn" type="submit">Mettre à jour</button>
+            </form>
+          </div>
+
+          <div class="card">
+            <h2>Convocations</h2>
+            <form id="convocationForm" class="inline-form">
+              <input id="convocationStartInput" type="time" />
+              <input id="convocationEndInput" type="time" />
+              <button class="primary-btn" type="submit">Mettre à jour</button>
+            </form>
+          </div>
+
+          <div class="card">
+            <h2>Abandons et incidents</h2>
+            <form id="withdrawalForm" class="stack-form">
+              <label>
+                <span>Coureur</span>
+                <select id="withdrawalRiderInput"></select>
+              </label>
+              <label>
+                <span>Date</span>
+                <input id="withdrawalDateInput" type="date" />
+              </label>
+              <label>
+                <span>Motif</span>
+                <input id="withdrawalReasonInput" type="text" placeholder="Ex. Fièvre, chute, maladie" />
+              </label>
+              <button class="primary-btn" type="submit">Ajouter</button>
+            </form>
+            <ul id="withdrawalList" class="list"></ul>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="mediaTab">
+          <div class="card placeholder">
+            <h2>Module médias</h2>
+            <p>À venir : configuration des accès médias, des notifications et des droits d’édition des demandes d’interview.</p>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="pressTab">
+          <div class="card placeholder">
+            <h2>Module attachés de presse</h2>
+            <p>À venir : suivi des équipes, envoi des convocations et validation des interviews.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Média – Tour de France</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="../shared/race-data.js"></script>
+  </head>
+  <body>
+    <div class="phone-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Tour de France 2026</p>
+          <h1>Interviews</h1>
+        </div>
+        <a class="small-link" href="../index.html">Accueil</a>
+      </header>
+
+      <section class="hero-card">
+        <p class="label">Programme</p>
+        <h2>Demandes d’interview</h2>
+        <div class="hero-meta">
+          <span>Étape 1</span>
+          <span>•</span>
+          <span>Paris / Nice</span>
+        </div>
+      </section>
+
+      <section class="stats">
+        <div class="stat-box">
+          <small>Équipes</small>
+          <strong id="teamTotal">0</strong>
+        </div>
+        <div class="stat-box">
+          <small>Sélection</small>
+          <strong id="selectionTotal">0</strong>
+        </div>
+        <div class="stat-box">
+          <small>Demandes</small>
+          <strong id="requestTotal">0</strong>
+        </div>
+      </section>
+
+      <main class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="label">Médias</p>
+            <h3>Choisir les coureurs</h3>
+          </div>
+          <select id="mediaOutletSelect">
+            <option value="L’Équipe">L’Équipe</option>
+            <option value="Le Monde">Le Monde</option>
+            <option value="Cycling News">Cycling News</option>
+            <option value="France Télévisions">France Télévisions</option>
+            <option value="RTBF">RTBF</option>
+            <option value="Le Soir">Le Soir</option>
+          </select>
+        </div>
+
+        <div id="selectedSummary" class="selection-box empty">Aucune sélection pour le moment.</div>
+        <div id="teamList" class="team-list"></div>
+
+        <button id="submitSelection" class="primary-btn" type="button">Valider les sélections</button>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

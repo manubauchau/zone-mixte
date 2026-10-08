@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attaché de presse – Tour de France</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="../shared/race-data.js"></script>
+  </head>
+  <body>
+    <div class="phone-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Tour de France 2026</p>
+          <h1>Attaché</h1>
+        </div>
+        <a class="small-link" href="../index.html">Accueil</a>
+      </header>
+
+      <section class="team-banner">
+        <div>
+          <p class="label">Équipe</p>
+          <h2 id="teamName">UAE Team Emirates XRG</h2>
+        </div>
+        <span id="teamCode" class="team-badge">UAE</span>
+      </section>
+
+      <main class="panel">
+        <div class="panel-head">
+          <p class="label">Coureurs</p>
+          <span class="tiny-pill">Demandes actives</span>
+        </div>
+        <div id="riderList" class="rider-list"></div>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

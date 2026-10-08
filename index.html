@@ -3,112 +3,98 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tour de France – Demandes d’interview</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Tour de France – Apps de gestion</title>
+    <style>
+      :root {
+        --bg: #0a0a0a;
+        --card: #161616;
+        --gold: #f5c74a;
+        --text: #f3f3f3;
+        --muted: #b8b8b8;
+        --line: rgba(255,255,255,0.08);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: radial-gradient(circle at top, rgba(245,199,74,0.12), transparent 35%), #090909;
+        color: var(--text);
+        font-family: Inter, "Segoe UI", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .wrapper {
+        width: min(100%, 600px);
+        background: rgba(17,17,17,0.96);
+        border: 1px solid var(--line);
+        border-radius: 30px;
+        box-shadow: 0 30px 60px rgba(0,0,0,.45);
+        padding: 28px 22px 18px;
+      }
+      .eyebrow {
+        margin: 0 0 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 0.72rem;
+        color: var(--gold);
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 3.2rem);
+      }
+      .subtitle {
+        margin: 12px 0 26px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .apps {
+        display: grid;
+        gap: 14px;
+      }
+      .app-card {
+        display: block;
+        padding: 18px 16px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        text-decoration: none;
+        color: var(--text);
+        background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      }
+      .app-card strong {
+        display: block;
+        font-size: 1.2rem;
+        margin-bottom: 6px;
+      }
+      .app-card span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .app-card:hover {
+        border-color: rgba(245,199,74,0.4);
+      }
+    </style>
   </head>
   <body>
-    <div class="phone-shell">
-      <header class="app-header">
-        <div class="brand-block">
-          <span class="brand-kicker">Tour de France</span>
-          <h1>Press Link</h1>
-        </div>
-        <div class="header-indicator">
-          <span class="live-dot"></span>
-          2026
-        </div>
-      </header>
-
-      <nav class="role-switcher" aria-label="Choix du profil">
-        <button class="role-tab active" data-role="media">Médias</button>
-        <button class="role-tab" data-role="attaché">Attachés</button>
-        <button class="role-tab" data-role="admin">Admin</button>
-      </nav>
-
-      <section class="hero-card">
-        <p class="eyebrow">Programme de demandes</p>
-        <h2>Interview des coureurs</h2>
-        <div class="hero-line">
-          <span>Étape 1</span>
-          <span>•</span>
-          <span>Paris / Nice</span>
-        </div>
-      </section>
-
-      <section class="stats-row">
-        <div class="stat-card">
-          <span>Équipes</span>
-          <strong id="teamCount">22</strong>
-        </div>
-        <div class="stat-card">
-          <span>Sélection</span>
-          <strong id="selectionCount">0</strong>
-        </div>
-        <div class="stat-card">
-          <span>Demandes</span>
-          <strong id="requestCount">0</strong>
-        </div>
-      </section>
-
-      <main class="panel-stack">
-        <section class="panel active" id="mediaPanel">
-          <div class="panel-head">
-            <div>
-              <p class="section-label">Médias</p>
-              <h3>Demandes d’interview</h3>
-            </div>
-            <select id="mediaSelect" aria-label="Choisir un média">
-              <option value="L’Équipe">L’Équipe</option>
-              <option value="Le Monde">Le Monde</option>
-              <option value="Cycling News">Cycling News</option>
-              <option value="France Télévisions">France Télévisions</option>
-              <option value="RTBF">RTBF</option>
-              <option value="Le Soir">Le Soir</option>
-            </select>
-          </div>
-
-          <div id="mediaSelectionSummary" class="selection-summary empty">
-            Aucune sélection pour le moment.
-          </div>
-
-          <div id="mediaTeamList" class="team-list"></div>
-
-          <button id="validateRequests" class="primary-button" type="button">
-            Valider les sélections
-          </button>
-        </section>
-
-        <section class="panel" id="attachéPanel">
-          <div class="panel-head compact">
-            <div>
-              <p class="section-label">Attaché de presse</p>
-              <h3 id="attachéTeamTitle">Équipe UAE</h3>
-            </div>
-            <span class="team-badge" id="attachéBadge">UAE</span>
-          </div>
-
-          <div id="attachéList" class="attaché-list"></div>
-        </section>
-
-        <section class="panel" id="adminPanel">
-          <div class="panel-head compact">
-            <div>
-              <p class="section-label">Administration</p>
-              <h3>Étapes et courses</h3>
-            </div>
-          </div>
-
-          <div class="stage-form">
-            <input id="stageName" type="text" placeholder="Nom de l’étape" />
-            <input id="stageDate" type="date" />
-            <button id="addStage" type="button" class="primary-button mini">Ajouter</button>
-          </div>
-
-          <ul id="stageList" class="stage-list"></ul>
-        </section>
-      </main>
+    <div class="wrapper">
+      <p class="eyebrow">Tour de France 2026</p>
+      <h1>Press Ops</h1>
+      <p class="subtitle">Choisissez le profil de l’application pour gérer les données de course, les demandes médias et les interviews des coureurs.</p>
+      <div class="apps">
+        <a class="app-card" href="/admin/index.html">
+          <strong>Application 1 — Administrateur</strong>
+          <span>Gérer les données de course, les étapes, les équipes, les coureurs et les infos quotidiennes.</span>
+        </a>
+        <a class="app-card" href="/media/index.html">
+          <strong>Application 2 — Média</strong>
+          <span>Comparer les coureurs, sélectionner les demandes d’interview et préparer les prises de contact.</span>
+        </a>
+        <a class="app-card" href="/press/index.html">
+          <strong>Application 3 — Attaché de presse</strong>
+          <span>Recevoir les demandes et suivre les coureurs de son équipe, avec les horaires de convocation.</span>
+        </a>
+      </div>
     </div>
-
-    <script src="app.js"></script>
   </body>
 </html>
